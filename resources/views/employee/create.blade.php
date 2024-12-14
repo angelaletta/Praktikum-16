@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-sm my-5">
-        <form action="{{ route('employees.store') }}" method="POST">
             @csrf
             <div class="row justify-content-center">
                 <div class="row justify-content-center">
@@ -16,7 +14,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
                                 <input class="form-control @error('firstName') is-invalid @enderror" type="text"
-                                    name="firstName" id="firstName" value="{{ old('firstName') }}"
+                                    name="firstNamse" id="firstName" value="{{ old('firstName') }}"
                                     placeholder="Enter First Name">
                                 @error('firstName')
                                     <div class="text-danger"><small>{{ $message }}</small></div>
@@ -60,6 +58,13 @@
                                     <div class="text-danger"><small>{{ $message }}</small></div>
                                 @enderror
                             </div>
+                            <div class="container-sm my-5">
+                                <form action="{{ route('employees.store') }}" method="POST">
+                                    enctype="multipart/form-data">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="cv" class="form-label">Curriculum Vitae (CV)</label>
+                                        <input type="file" class="form-control" name="cv" id="cv">
+                                    </div>
                         </div>
                         <hr>
                         <div class="row">
